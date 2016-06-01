@@ -10,8 +10,8 @@ public class Accounts extends Controller {
 	public static void signup() {
 		render();
 	}
-	
-	public static void register (User user) {
+
+	public static void register(User user) {
 		user.save();
 		login();
 	}
@@ -24,11 +24,10 @@ public class Accounts extends Controller {
 		session.clear();
 		Welcome.index();
 	}
-	
+
 	public static User getCurrentUser() {
-		String userId = session.get ("logged_in_userid");
-		if (userId == null)
-		{
+		String userId = session.get("logged_in_userid");
+		if (userId == null) {
 			return null;
 		}
 		User logged_in_user = User.findById(Long.parseLong(userId));

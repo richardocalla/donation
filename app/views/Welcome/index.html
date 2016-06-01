@@ -1,12 +1,10 @@
-#{extends 'main.html' /}
-#{set title:'Welcome' /}
+#{extends 'main.html' /} #{set title:'Welcome' /}
 
 <nav class="ui inverted menu">
-   <a class="ui active item" href="/">Home</a>
-   <a class="ui item" href="/signup">Sign Up</a>
-   <a class="ui item" href="/login">Log In</a>
-   <a class="ui item" href="/donation">Make Donation</a>
-   <a class="ui item" href="/logout">Log Out</a>
+	<a class="ui active item" href="/">Home</a> <a class="ui item"
+		href="/signup">Sign Up</a> <a class="ui item" href="/login">Log In</a>
+	<a class="ui item" href="/donation">Make Donation</a> <a
+		class="ui item" href="/logout">Log Out</a>
 </nav>
 
 <h1>Welcome</h1>
@@ -16,9 +14,11 @@
 		<td>
 			<p>Homer for President</p>
 			<p>Time for a change</p>
-		  <p>Out with the Old</p>
+			<p>Out with the Old</p>
 			<p>In with Homer</p>
-			<p><a href ="/signup">Register</a> or <a href ="/login">sign in. </a></p>
+			<p>
+				<a href="/signup">Register</a> or <a href="/login">sign in. </a>
+			</p>
 			<p>We look forward to your generous contribution.</p>
 		</td>
 		<td><img src="/public/images/homer.gif"></td>
