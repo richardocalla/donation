@@ -14,7 +14,7 @@ import play.db.jpa.Blob;
 public class User extends Model {
 	public String firstName;
 	public String lastName;
-	public boolean usaCitizen;
+	public boolean usCitizen;
 	public String email;
 	public String password;
 
