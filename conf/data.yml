@@ -4,3 +4,10 @@ User(homer):
     email: homer@simpson.com
     usCitizen: true
     password: secret
+    
+User(marge):
+    firstName: Marge
+    lastName: Simpson
+    email: marge@simpson.com
+    usCitizen: true
+    password: secret
