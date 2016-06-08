@@ -1,5 +1,6 @@
 package models;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import java.util.List;
 import java.util.ArrayList;
@@ -15,6 +16,10 @@ public class User extends Model {
 	public String firstName;
 	public String lastName;
 	public boolean usCitizen;
+	
+	@OneToMany(mappedBy = "from", cascade = CascadeType.ALL)
+	List<Donation> donations = new ArrayList<Donation>();
+	
 	public String email;
 	public String password;
 

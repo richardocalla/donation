@@ -10,19 +10,42 @@ import models.*;
 public class DonationController extends Controller {
 
 	public static void index() {
-		Logger.info("Landed in DonationController class");
-		render();
+		User user = Accounts.getCurrentUser();
+		if (user == null) {
+			Logger.info("Donation class : Unable to getCurrentUser");
+			Accounts.login();
+		} else {
+			String prog = getPercentTargetAchieved();
+			String progress = prog + "%";
+			Logger.info("Donation controller : percent target achieved " + progress);
+			render(user, progress);
+		}
 	}
-	
+
+	public static String getPercentTargetAchieved() {
+		List<Donation> allDonations = Donation.findAll();
+		long total = 0;
+		for (Donation donation : allDonations) {
+			total += donation.received;
+		}
+		long target = getDonationTarget();
+		long percentachieved = (total * 100 / target);
+		String progress = String.valueOf(percentachieved);
+		return progress;
+	}
+
 	private static void addDonation(User user, long amountDonated, String methodDonated) {
 		Donation bal = new Donation(user, amountDonated, methodDonated);
 		bal.save();
 	}
-	
+
 	/**
 	 * Log and save to database amount donated and method of donation.
-	 * @param amountDonated Dollars donated
-	 * @param methodDonated Method used to donate (Paypal/Direct)
+	 * 
+	 * @param amountDonated
+	 *            Dollars donated
+	 * @param methodDonated
+	 *            Method used to donate (Paypal/Direct)
 	 */
 	public static void donate(long amountDonated, String methodDonated) {
 		Logger.info("amount donated " + amountDonated + " " + "methodDonated " + methodDonated);
@@ -35,6 +58,10 @@ public class DonationController extends Controller {
 			addDonation(user, amountDonated, methodDonated);
 		}
 		index();
+	}
+
+	public static long getDonationTarget() {
+		return 20000;
 	}
 
 }
