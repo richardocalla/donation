@@ -10,20 +10,15 @@
 
 <section class="ui segment">
 	<h3>Welcome Homer</h3>
-	Please give generously
+	<p>Please give generously</p>
 	<form class="ui form" action="/donation/donate" method="POST">
 		<div class="ui four column grid">
 			<div class="column">
-				<div class="ui selection dropdown">
-					<input name="amountDonated" type="hidden">
-					<div class="default text">Amount</div>
-					<i class="dropdown icon"></i>
-					<div class="menu">
-						<div class="item" data-value="100">$100</div>
-						<div class="item" data-value="500">$500</div>
-						<div class="item" data-value="1000">$1000</div>
-					</div>
-				</div>
+				<select name="amountDonated">
+					<option value="100">100</option>
+					<option value="500">500</option>
+					<option value="1000" selected>1000</option>
+				</select>
 			</div>
 			<div class="column">
 				<div class="grouped inline fields">
@@ -42,6 +37,7 @@
 				</div>
 			</div>
 		</div>
+		<br>
 		<div class="ui blue submit button">
 			Donate <i class="add icon"></i>
 		</div>
