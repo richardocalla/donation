@@ -13,12 +13,17 @@ public class DonationController extends Controller {
 		Logger.info("Landed in DonationController class");
 		render();
 	}
-
+	
 	private static void addDonation(User user, long amountDonated, String methodDonated) {
 		Donation bal = new Donation(user, amountDonated, methodDonated);
 		bal.save();
 	}
-
+	
+	/**
+	 * Log and save to database amount donated and method of donation.
+	 * @param amountDonated Dollars donated
+	 * @param methodDonated Method used to donate (Paypal/Direct)
+	 */
 	public static void donate(long amountDonated, String methodDonated) {
 		Logger.info("amount donated " + amountDonated + " " + "methodDonated " + methodDonated);
 
