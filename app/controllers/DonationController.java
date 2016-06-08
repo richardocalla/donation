@@ -75,5 +75,10 @@ public class DonationController extends Controller {
 	public static long getDonationTarget() {
 		return 20000;
 	}
-
+	
+	public static void renderReport() {
+		List<Donation> donations = Donation.findAll();
+		render(donations);
+	}
+	
 }
