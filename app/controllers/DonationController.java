@@ -21,11 +21,12 @@ public class DonationController extends Controller {
 			render(user, progress);
 		}
 	}
-    
+
 	/**
-     * Queries Donation model for a list of donations to render on progress bar.
-     * @return The percentage of donation target achieved to date.
-     */
+	 * Queries Donation model for a list of donations to render on progress bar.
+	 * 
+	 * @return The percentage of donation target achieved to date.
+	 */
 	public static String getPercentTargetAchieved() {
 		List<Donation> allDonations = Donation.findAll();
 		long total = 0;
@@ -37,11 +38,14 @@ public class DonationController extends Controller {
 		String progress = String.valueOf(percentachieved);
 		return progress;
 	}
-    
+
 	/**
 	 * Records individual donations with donation method and amount.
-	 * @param amountDonated The amount donated
-	 * @param methodDonated The method of donation
+	 * 
+	 * @param amountDonated
+	 *            The amount donated
+	 * @param methodDonated
+	 *            The method of donation
 	 */
 	private static void addDonation(User user, long amountDonated, String methodDonated) {
 		Donation bal = new Donation(user, amountDonated, methodDonated);
@@ -50,6 +54,7 @@ public class DonationController extends Controller {
 
 	/**
 	 * Log and save to database amount donated and method of donation.
+	 * 
 	 * @param amountDonated
 	 *            Dollars donated
 	 * @param methodDonated
@@ -67,18 +72,22 @@ public class DonationController extends Controller {
 		}
 		index();
 	}
-    
+
 	/**
-     * Hard codes an arbitrary donation target amount.
-     * @return The target donation amount
-     */
+	 * Hard codes an arbitrary donation target amount.
+	 * 
+	 * @return The target donation amount
+	 */
 	public static long getDonationTarget() {
 		return 20000;
 	}
-	
+
+	/**
+	 * Render report summary
+	 */
 	public static void renderReport() {
 		List<Donation> donations = Donation.findAll();
 		render(donations);
 	}
-	
+
 }

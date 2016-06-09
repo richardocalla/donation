@@ -16,10 +16,10 @@ public class User extends Model {
 	public String firstName;
 	public String lastName;
 	public boolean usCitizen;
-	
+
 	@OneToMany(mappedBy = "from", cascade = CascadeType.ALL)
 	List<Donation> donations = new ArrayList<Donation>();
-	
+
 	public String email;
 	public String password;
 

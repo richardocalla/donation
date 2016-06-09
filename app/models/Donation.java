@@ -20,7 +20,7 @@ public class Donation extends Model {
 		this.received = recieved;
 		this.methodDonated = methodDonated;
 		this.from = from;
-	    dateDonated = new Date();
+		dateDonated = new Date();
 	}
 
 }
